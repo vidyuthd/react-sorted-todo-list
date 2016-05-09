@@ -16,3 +16,34 @@
 #todo-list li .edit {
   display: inline;
 }
+
+.slider-enter {
+	overflow-y: hidden;
+	max-height: 0; /* approximate max height */
+}
+
+.slider-enter.slider-enter-active{
+    max-height : 58px;
+    overflow-y: hidden;
+    transition : all, .5s, cubic-bezier(0, 1, 0.5, 1);
+}
+
+.slider-leave{
+	max-height: 58px;
+}
+
+.slider-leave.slider-leave-active{
+    max-height : 0px;
+    overflow-y: hidden;
+    transition : all, .5s, cubic-bezier(0, 1, 0.5, 1);
+}
+
+/*
+transition-property: all;
+transition-duration: .5s;
+transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+*/
+
+.slider.closed {
+	max-height: 0;
+}

@@ -1,6 +1,7 @@
 import React,{ Component } from 'react'
-import TodoActions from '../actions/TodoActions'
 import TodoTextInput from './TodoTextInput.react'
+import {connect} from 'react-redux'
+import * as actioncreators from '../dispatcher/ActionCreator'
 
 class Header extends Component{
   render(){
@@ -19,9 +20,14 @@ class Header extends Component{
 
   onSave(text){
     if(text.trim()){
-      TodoActions.create(text)
+      this.props.addTodo(text)
     }
   }
 }
+
+
+const mapStateToProps = () => { return {}}
+
+Header = connect(mapStateToProps,actioncreators)(Header)
 
 export default Header
