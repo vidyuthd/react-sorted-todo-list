@@ -45,39 +45,6 @@ const pos = (state,id) => {
   return i
 }
 
-const place = (state,text) => {
-  const keys = Object.keys(state)
-  let i = 0
-  for(; i < keys.length ; i++){
-      if(text < state[keys[i]].text){
-        return i
-      }
-  }
-  return i
-}
-
-/*
-const sort = (state) => {
-   let newstate = {}
-   newstate["ids"] = []
-   const ids = state["ids"]
-   let obj = {}
-   let arr = []
-   for(var id in ids){
-      const text = state[ids[id]]["text"]
-      obj[text] = ids[id]
-      arr.push(text)
-   }
-   arr.sort()
-   for(var i in arr){
-     newstate[obj[arr[i]]] = state[obj[arr[i]]]
-     newstate["ids"].push(obj[arr[i]])
-   }
-
-   return newstate
-}
-*/
-
 const store = createStore(reducer)
 store.dispatch({type:"INITIALIZE"})
 

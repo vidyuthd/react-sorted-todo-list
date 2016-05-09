@@ -433,7 +433,6 @@ var TodoApp = function (_Component) {
   _createClass(TodoApp, [{
     key: 'render',
     value: function render() {
-      console.log(this.props.allTodos);
       return _react2.default.createElement('div', null, _react2.default.createElement(_Header2.default, null), _react2.default.createElement(_MainSection2.default, { allTodos: this.props.allTodos }));
     }
   }]);
@@ -23397,9 +23396,7 @@ var reducer = function reducer() {
         complete: !state[position]["complete"],
         text: state[position]["text"]
       };
-      console.log('position is ', position);
       newstate = state.slice(0, position).concat([mergeObj]).concat(state.slice(position + 1, state.length));
-      console.log(newstate);
       break;
     default:
       return state;
@@ -23423,39 +23420,6 @@ var pos = function pos(state, id) {
   }
   return i;
 };
-
-var place = function place(state, text) {
-  var keys = Object.keys(state);
-  var i = 0;
-  for (; i < keys.length; i++) {
-    if (text < state[keys[i]].text) {
-      return i;
-    }
-  }
-  return i;
-};
-
-/*
-const sort = (state) => {
-   let newstate = {}
-   newstate["ids"] = []
-   const ids = state["ids"]
-   let obj = {}
-   let arr = []
-   for(var id in ids){
-      const text = state[ids[id]]["text"]
-      obj[text] = ids[id]
-      arr.push(text)
-   }
-   arr.sort()
-   for(var i in arr){
-     newstate[obj[arr[i]]] = state[obj[arr[i]]]
-     newstate["ids"].push(obj[arr[i]])
-   }
-
-   return newstate
-}
-*/
 
 var store = (0, _redux.createStore)(reducer);
 store.dispatch({ type: "INITIALIZE" });
